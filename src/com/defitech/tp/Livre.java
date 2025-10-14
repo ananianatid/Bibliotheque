@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Livre {
     private String titre;
     private String ISBN;
-    private String auteur;
+    private Auteur auteur;
     private LocalDate anneePublication;
     private Boolean estEmprunte;
 
@@ -13,7 +13,7 @@ public class Livre {
         System.out.println("Livre crée");
     }
 
-    public  Livre(String titre,String ISBN,String auteur,LocalDate anneePublication,Boolean estEmprunte) {
+    public  Livre(String titre,String ISBN,Auteur auteur,LocalDate anneePublication,Boolean estEmprunte) {
         this.titre = titre;
         this.ISBN = ISBN;
         this.auteur = auteur;
@@ -35,10 +35,10 @@ public class Livre {
         this.ISBN = ISBN;
     }
     //auteur
-    public String getAuteur() {
+    public Auteur getAuteur() {
         return auteur;
     }
-    public void setAuteur(String auteur) {
+    public void setAuteur(Auteur auteur) {
         this.auteur = auteur;
     }
 

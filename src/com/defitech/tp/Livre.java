@@ -18,7 +18,7 @@ public class Livre {
         this.ISBN = ISBN;
         this.auteur = auteur;
         this.anneePublication = anneePublication;
-        this.estEmprunte = estEmprunte;
+        this.estEmprunte = false;
     }
     // titre
     public String getTitre() {

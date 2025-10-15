@@ -1,6 +1,8 @@
 package com.defitech.tp;
 
 import java.time.LocalDate;
+import java.util.Objects;
+
 // ameliorer le cde avec le design patter builder
 public class Livre {
     private String titre;
@@ -55,5 +57,28 @@ public class Livre {
     }
     public void setEstEmprunte(Boolean estEmprunte) {
         this.estEmprunte = estEmprunte;
+    }
+
+    @Override
+    public String toString() {
+        return "Livre {" +
+                "titre='" + titre + '\'' +
+                ", ISBN='" + ISBN + '\'' +
+                ", auteur=" + (auteur != null ? auteur.getNom() : "N/A") +
+                ", anneePublication=" + anneePublication +
+                ", estEmprunte=" + estEmprunte +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Livre livre = (Livre) o;
+        return Objects.equals(ISBN, livre.getISBN());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ISBN);
     }
 }

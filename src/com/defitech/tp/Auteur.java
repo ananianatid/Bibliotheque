@@ -14,7 +14,7 @@ public class Auteur {
         System.out.println("l'auteur est créé");
     }
 
-    public Auteur(String nom,String prenom,String nationalite, List livresEcrits) {
+    public Auteur(String nom,String prenom,String nationalite) {
         this.nom = nom;
         this.prenom = prenom;
         this.nationalite = nationalite;
@@ -35,6 +35,10 @@ public class Auteur {
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
+    }
+
+    public String getFullName(){
+        return  this.nom +" "+ this.prenom;
     }
 
     public String getNationalite() {
@@ -78,6 +82,10 @@ public class Auteur {
     @Override
     public int hashCode() {
         return Objects.hash(getNom());
+    }
+
+    public void ajouterLivre(Livre livre){
+        this.livresEcrits.add(livre);
     }
 }
 

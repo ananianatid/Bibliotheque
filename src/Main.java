@@ -7,34 +7,13 @@ import java.util.List;
 
 void main() {
 
-    Auteur victorHugo = new Auteur("Hugo", "Victor", "Francaise", new ArrayList<>());
-    System.out.println("Ateur créé : " + victorHugo.getPrenom() + " " + victorHugo.getNom());
-    System.out.println("------------------------------------");
+    Auteur victorHugo = new Auteur("Victor","Hugo","francaise");
+    Auteur mathiewWalker = new Auteur("Mathiew","Walker","Americain");
+    Auteur georgesMartin = new Auteur("Georges","Martin","Americain");
 
+    Livre  lesMiserales = new Livre("Les miseerables","000000000",victorHugo ,LocalDate.of(1984,10,11),false);
+    Livre  pourquoiDormons = new Livre("Pourquoi nous dormons","000000001",mathiewWalker ,LocalDate.of(1984,10,12),false);
+    Livre  feuEtSang = new Livre("feu et sang ","000000003",georgesMartin ,LocalDate.of(1984,10,13),false);
 
-    Livre lesMiserables = new Livre(
-            "Les Misérables",
-            "9782384610020",
-            victorHugo,
-            LocalDate.of(1862, 4, 3),
-            false
-    );
-
-
-    List livresDeHugo = victorHugo.getLivre();
-    livresDeHugo.add(lesMiserables);
-
-    System.out.println("--- Détails du Livre ---");
-    System.out.println(lesMiserables);
-
-    System.out.println("\n--- Détails de l'Auteur ---");
-    System.out.println("Auteur: " + victorHugo.getPrenom() + " " + victorHugo.getNom());
-
-    System.out.println("Titre du premier livre de sa liste: " + ((Livre) victorHugo.getLivre().get(0)).getTitre());
-
-    System.out.println("\n--- Test d'une modification via les setter- ---");
-    System.out.println("Statut d'emprunt initial : " + lesMiserables.getEstEmprunte());
-
-    lesMiserables.setEstEmprunte(true);
-    System.out.println("Nouvau statut d'emprunt : " + lesMiserables.getEstEmprunte());
+    System.out.println(lesMiserales);
 }

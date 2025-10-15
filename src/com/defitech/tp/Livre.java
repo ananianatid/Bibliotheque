@@ -4,12 +4,14 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 // ameliorer le cde avec le design patter builder
-public class Livre {
+public class Livre implements Empruntable {
     private String titre;
     private String ISBN;
     private Auteur auteur;
     private LocalDate anneePublication;
     private Boolean estEmprunte;
+    private LocalDate dateRetourPrevu;
+    private String emprunteur;
 
     public Livre(){
         System.out.println("Livre crée");
@@ -19,8 +21,11 @@ public class Livre {
         this.titre = titre;
         this.ISBN = ISBN;
         this.auteur = auteur;
+        this.auteur.ajouterLivre(this);
         this.anneePublication = anneePublication;
         this.estEmprunte = false;
+        this.dateRetourPrevu = null;
+        this.emprunteur = "unknown";
     }
     // titre
     public String getTitre() {
@@ -59,15 +64,31 @@ public class Livre {
         this.estEmprunte = estEmprunte;
     }
 
+    public LocalDate getDateRetourPrevu() {
+        return dateRetourPrevu;
+    }
+
+    public void setDateRetourPrevu(LocalDate dateRetourPrevu) {
+        this.dateRetourPrevu = dateRetourPrevu;
+    }
+
+    public String getEmprunteur() {
+        return emprunteur;
+    }
+
+    public void setEmprunteur(String emprunteur) {
+        this.emprunteur = emprunteur;
+    }
+
     @Override
     public String toString() {
-        return "Livre {" +
-                "titre='" + titre + '\'' +
-                ", ISBN='" + ISBN + '\'' +
-                ", auteur=" + (auteur != null ? auteur.getNom() : "N/A") +
-                ", anneePublication=" + anneePublication +
-                ", estEmprunte=" + estEmprunte +
-                '}';
+        return "Livre {\n" +
+                "titre = " + titre + '\n' +
+                "ISBN = " + ISBN + '\n' +
+                "auteur = " + auteur.getFullName() +
+                "\nanneePublication = " + anneePublication +
+                "\nestEmprunte = " + estEmprunte +
+                "\n}";
     }
 
     @Override
@@ -81,4 +102,28 @@ public class Livre {
     public int hashCode() {
         return Objects.hash(ISBN);
     }
+
+
+    @Override
+    public void emprunter(String enprunteur) {
+        this.setEstEmprunte(true);
+        setDateRetourPrevu(LocalDate.now().plusWeeks(2));
+        this.setEmprunteur(emprunteur);
+
+    }
+
+    @Override
+    public void retourner() {
+        this.setEstEmprunte(false);
+        this.setDateRetourPrevu(null);
+        this.setDateRetourPrevu(null);
+
+    }
+
+    public boolean estDisponible() {
+        return !this.estEmprunte;
+    }
+
+
+
 }

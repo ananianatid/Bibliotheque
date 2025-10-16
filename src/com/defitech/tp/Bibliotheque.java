@@ -63,4 +63,14 @@ public class Bibliotheque {
                 ", emprunts=" + emprunts +
                 '}';
     }
+    public void afficherLivresDisponibles(){
+        System.out.println("******** list des livres disponibles ********");
+        for(Livre livre: livres){
+            System.out.println(livre);
+        }
+
+    }
+    public void afficherLivresEmprunt(){
+        System.out.println("******** list des livres empruntés ********");
+    }
 }

@@ -1,4 +1,5 @@
 import com.defitech.tp.Auteur;
+import com.defitech.tp.Bibliotheque;
 import com.defitech.tp.Livre;
 
 import java.time.LocalDate;
@@ -6,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 void main() {
-
+    Bibliotheque alexandrie = new Bibliotheque();
     Auteur victorHugo = new Auteur("Victor","Hugo","francaise");
     Auteur mathiewWalker = new Auteur("Mathiew","Walker","Americain");
     Auteur georgesMartin = new Auteur("Georges","Martin","Americain");
